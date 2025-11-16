@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 32</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/Gemini_Generated_Image_fwprphfwprphfwpr.png" alt="Page 32">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[32]</div>
+            
+            <div class="page-text">
+                You've reached a major path intersection. The wind howls around you, and the first drops of cold rain begin to fall. It's clear a serious storm is about to break, and to be caught exposed would be incredibly dangerous. To your left, another path leads towards a single, distant, beckoning light – the only promise of shelter. To your right, the main path towards Srivara continues along the top of the dark, treacherous cliffs.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="40">
+                        Seek shelter and follow the path towards the light to the left.<br/><span class="go-to">(<a href="40.html" class="action-link">go to page 40</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="33">
+                        Ignore the danger and take the main path along the cliffs to the right.<br/><span class="go-to">(<a href="33.html" class="action-link">go to page 33</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

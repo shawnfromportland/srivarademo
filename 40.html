@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 40</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_first_person_view_hiking_trail_at_night_tim_8a06cf09-5e96-45f8-937b-299494620878_0.png" alt="Page 40">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[40]</div>
+            
+            <div class="page-text">
+                You follow the path towards the light, your only beacon in the stormy darkness. It leads you away from the exposed intersection and into more sheltered terrain. The tree cover increases, muffling the roar of the wind, as the light resolves into the glowing windows of a cottage.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="41">
+                        Continue forward into the trees.<br/><span class="go-to">(<a href="41.html" class="action-link">go to page 41</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

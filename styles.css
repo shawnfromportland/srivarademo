@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Courier Prime', monospace;
+    background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+    background-attachment: fixed;
+    color: #d4d4d4;
+    min-height: 100vh;
+}
+.admin-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    background: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.admin-toggle label {
+    color: #d4d4d4;
+    cursor: pointer;
+}
+.admin-toggle input[type="checkbox"] {
+    cursor: pointer;
+}
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 0 2rem; /* Removed vertical padding */
+    gap: 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+.image-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 40px; /* Added padding */
+}
+.image-column img {
+    max-width: 100%;
+    max-height: 100%; /* Changed to 100% to respect parent's padding */
+    object-fit: contain; /* Added to scale image within container */
+    border: 2px solid #444;
+    box-shadow: -15px 20px 40px rgba(0,0,0,0.8);
+}
+.image-upload-container {
+    display: none;
+    margin-top: 2rem;
+    width: 100%;
+}
+body.admin-mode .image-upload-container {
+    display: block;
+}
+.image-drop-zone {
+    border: 3px dashed #666;
+    background-color: rgba(255, 215, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 8px;
+}
+.image-drop-zone:hover {
+    background-color: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+}
+.image-drop-zone.drag-over {
+    background-color: rgba(255, 215, 0, 0.3);
+    border-color: #ffd700;
+    transform: scale(1.02);
+}
+.image-drop-zone .drop-text {
+    font-size: 1.2rem;
+    color: #d4d4d4;
+    margin-bottom: 0.5rem;
+}
+.image-drop-zone .drop-hint {
+    font-size: 0.9rem;
+    color: #888;
+}
+.content-column {
+    flex: 1;
+    padding: 3rem 2rem; /* Added vertical padding here */
+}
+.page-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin-bottom: 2rem;
+    text-align: right;
+}
+.page-text {
+    font-size: 1.4rem; /* Changed from 1.5rem */
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    color: #e0e0e0;
+}
+.actions-list {
+    list-style: none;
+    counter-reset: action-counter;
+    margin-left: 0;
+}
+.action-item {
+    counter-increment: action-counter;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    padding: 1rem 1rem 1rem 4rem;
+    border-left: 4px solid #ff6b6b;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+.action-item:hover {
+    background-color: rgba(255, 107, 107, 0.1);
+    box-shadow: -15px 20px 40px rgba(0,0,0,0.8);
+}
+body.admin-mode .action-item {
+    cursor: default;
+}
+body.admin-mode .action-item:hover {
+    background-color: transparent;
+    box-shadow: none;
+}
+.action-item::before {
+    content: counter(action-counter) ". ";
+    color: #ff6b6b;
+    font-weight: bold;
+}
+.action-item .action-text-display,
+.action-item .action-text-edit {
+    display: inline;
+}
+.action-link {
+    color: #4ecdc4;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+.action-link:hover {
+    border-bottom-color: #4ecdc4;
+}
+.go-to {
+    color: #888;
+    font-style: italic;
+    display: inline-block;
+    padding-left: 2.5rem;
+}
+
+/* Admin mode styles */
+body.admin-mode .page-text-display,
+body.admin-mode .action-text-display {
+    display: none;
+}
+body:not(.admin-mode) .page-text-edit,
+body:not(.admin-mode) .action-text-edit {
+    display: none;
+}
+.page-text-edit textarea {
+    width: 100%;
+    min-height: 500px;
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    padding: 1rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    resize: vertical;
+}
+.action-text-edit input {
+    width: 100%;
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    padding: 0.5rem;
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.3rem;
+}
+.save-status {
+    display: inline-block;
+    margin-left: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+.save-status.saving {
+    background: #ffc107;
+    color: #000;
+}
+.save-status.saved {
+    background: #28a745;
+    color: white;
+}
+.save-status.error {
+    background: #dc3545;
+    color: white;
+}
+
+/* Admin mode action controls */
+body:not(.admin-mode) .action-controls {
+    display: none;
+}
+.action-controls {
+    margin-top: 2rem;
+}
+.action-controls button {
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Courier Prime', monospace;
+    font-size: 1rem;
+}
+.action-controls button:hover {
+    background: #0056b3;
+}
+.action-delete-btn {
+    padding: 0.25rem 0.5rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+.action-delete-btn:hover {
+    background: #c82333;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+}
+

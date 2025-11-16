@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 15</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_httpss.mj.runseRElGbBD9g_The_dense_tree_cov_cb1097cf-5171-4512-b0f9-ba3343ee4f36_0.png" alt="Page 15">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[15]</div>
+            
+            <div class="page-text">
+                The dense tree cover blocks out much of the sky, casting the path in shadow. The trail becomes less defined, and you have to pick your way around fallen branches scattered across a forest floor carpeted in dry needles.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="19">
+                        Push deeper into the darkening woods.<br/><span class="go-to">(<a href="19.html" class="action-link">go to page 19</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="16">
+                        Investigate a small clearing to the side.<br/><span class="go-to">(<a href="16.html" class="action-link">go to page 16</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

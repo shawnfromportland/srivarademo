@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 2000</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_coastal_bluff_thatch_stacked_Stone_cottage__ff9fe864-f87a-4317-b6e1-a0670f88d5b4_1.png" alt="Page 2000">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[2000]</div>
+            
+            <div class="page-text">
+                You've arrived at a small, welcoming stone cottage, a single point of light in the stormy darkness. The windows glow warmly, and through the rain, you can see the silhouette of a woman standing in the open doorway, watching you approach.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="2010">
+                        Approach the woman and speak to her.<br/><span class="go-to">(<a href="2010.html" class="action-link">go to page 2010</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="2020">
+                        Nod politely and continue past the cottage.<br/><span class="go-to">(<a href="2020.html" class="action-link">go to page 2020</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="2010">
+                        Approach the woman and speak to her.<br/><span class="go-to">(<a href="2010.html" class="action-link">go to page 2010</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="2020">
+                        Nod politely and continue past the cottage.<br/><span class="go-to">(<a href="2020.html" class="action-link">go to page 2020</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

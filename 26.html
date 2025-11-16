@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 26</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_httpss.mj.runjzeZYBlrKyQ_behind_the_cabin_t_90fc16b1-c778-4045-aa83-a0db602d04a6_1.png" alt="Page 26">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[26]</div>
+            
+            <div class="page-text">
+                Scattered around the exterior of the ruins are old wooden beams and the remains of broken furniture. They are dry and weathered, perfect for burning if you need to make a fire later on.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="25">
+                        Return to the central ruins area.<br/><span class="go-to">(<a href="25.html" class="action-link">go to page 25</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

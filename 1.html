@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_first-person_view_Youre_in_a_small_personal_ab795b8d-b7b7-418f-998b-38a1b94c55ef_1.png" alt="Page 1">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[1]</div>
+            
+            <div class="page-text">
+                You step onto a weathered wooden dock in a sheltered cove. It's late afternoon, the sun casting a warm, golden light across the scene. A single, dusty path is carved into the high coastal bluffs that rise above you, promising the only way forward.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="3">
+                        head up the dock to the winding bluff path.<br/><span class="go-to">(<a href="3.html" class="action-link">go to page 3</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="2">
+                        give the boat a final inspection before leaving<br/><span class="go-to">(<a href="2.html" class="action-link">go to page 2</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

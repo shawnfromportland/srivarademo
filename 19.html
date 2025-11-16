@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 19</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_httpss.mj.runS9nXUF77Y9M_The_dense_tree_cov_f4595053-112f-4c79-8579-b4febaf785ee_1.png" alt="Page 19">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[19]</div>
+            
+            <div class="page-text">
+                Beyond the fallen trees, the path becomes clearer. The edge of the woods is visible just ahead, where this trail rejoins the main bluff path.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="20">
+                        Return to the main path.<br/><span class="go-to">(<a href="20.html" class="action-link">go to page 20</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

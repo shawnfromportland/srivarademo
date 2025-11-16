@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 2018</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_first_person_view_in_the_small_dry_shed_wit_9aa6cbf4-d42d-45f1-89dc-ca93f4c7bb6d_1.png" alt="Page 2018">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[2018]</div>
+            
+            <div class="page-text">
+                You are in the small, dry shed. It's dark and smells of hay and earth. Through the cracks in the wooden planks, you can hear the storm raging outside. You can rest here until morning.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="39">
+                        Wake up in the morning to continue your journey.<br/><span class="go-to">(<a href="39.html" class="action-link">go to page 39</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

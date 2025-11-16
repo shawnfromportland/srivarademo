@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 9</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_httpss.mj.run5E8LLxyNQjk_httpss.mj.runBSxnl_9419628e-8a30-4492-b1ee-24eb2dd2bc38_2.png" alt="Page 9">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[9]</div>
+            
+            <div class="page-text">
+                You reach for the first handhold on the cliff face and you are committed to the route now. some loose rock crumbles away from your left hand to the endless fall below, but you think you can make it if you're careful. 
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="8">
+                        it's too dangerous, turn back to the safe path<br/><span class="go-to">(<a href="8.html" class="action-link">go to page 8</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="1011">
+                        go for the outer route, try to climb up the roots and vegetation<br/><span class="go-to">(<a href="1011.html" class="action-link">go to page 1011</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="1012">
+                        go for the inner route using a crack climbing jammed fist technique<br/><span class="go-to">(<a href="1012.html" class="action-link">go to page 1012</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

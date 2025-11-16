@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 1012</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_httpss.mj.runOkAMmAEiUeg_first_person_view__1b37c5f5-0281-4755-8ff0-9b71472141dc_2.png" alt="Page 1012">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[1012]</div>
+            
+            <div class="page-text">
+                you expertly jam your fist into the crack route, and at the top of the chute you just have one more handhold to make to finish the wall.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="11">
+                        take the right route, a standing route up a towering chimney<br/><span class="go-to">(<a href="11.html" class="action-link">go to page 11</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="1011">
+                        take the left route, around the outcropping and up<br/><span class="go-to">(<a href="1011.html" class="action-link">go to page 1011</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

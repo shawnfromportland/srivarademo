@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 16</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_first_person_view_coastal_rock_hiking_trail_b3555253-ff5e-415b-aa79-ac62a4012f08_3.png" alt="Page 16">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[16]</div>
+            
+            <div class="page-text">
+                You step into a small, quiet clearing with an exposed rock outcrop at its center. Strange mushrooms grow in a cluster at the base of a dead, skeletal tree. It is quiet and still here, away from the wind.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="17">
+                        Continue exploring the clearing's edge.<br/><span class="go-to">(<a href="17.html" class="action-link">go to page 17</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>

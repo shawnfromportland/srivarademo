@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 2028</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <img src="images/shawnfromportland_first_person_inside_the_rustic_coastal_anci_e1a69f98-e44a-44b1-ac98-057ce8095f81_1.png" alt="Page 2028">
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[2028]</div>
+            
+            <div class="page-text">
+                The old man tells you a long, winding tale of Srivara, a city built in a hidden valley, protected by mountains and ancient traditions. It is a place, he says, that few find, and fewer still are permitted to enter. When he is done, he offers you a place to sleep for the night.
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="2018">
+                        Accept his offer and rest in the shed.<br/><span class="go-to">(<a href="2018.html" class="action-link">go to page 2018</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="2018">
+                        Accept his offer and rest in the shed.<br/><span class="go-to">(<a href="2018.html" class="action-link">go to page 2018</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the .html file
+                window.location.href = `${targetPage}.html`;
+            }
+        });
+    </script>
+</body>
+</html>
