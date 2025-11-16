@@ -25,11 +25,11 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="37">
-                        Frantically seek shelter and try to make camp.<br/><span class="go-to">(<a href="37.html" class="action-link">go to page 37</a>)</span>
+                        Frantically seek shelter and try to make camp.<br/><span class="go-to">(<a href="37" class="action-link">go to page 37</a>)</span>
                     </li>
                 
                     <li class="action-item" data-target-page="38">
-                        Gamble everything and try to push through the storm.<br/><span class="go-to">(<a href="38.html" class="action-link">go to page 38</a>)</span>
+                        Gamble everything and try to push through the storm.<br/><span class="go-to">(<a href="38" class="action-link">go to page 38</a>)</span>
                     </li>
                 
             </ul>
@@ -47,8 +47,8 @@
             
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
-                // Navigate to the .html file
-                window.location.href = `${targetPage}.html`;
+                // Navigate to the clean URL
+                window.location.href = `${targetPage}`;
             }
         });
     </script>

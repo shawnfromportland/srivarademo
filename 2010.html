@@ -25,19 +25,19 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="2012">
-                        'Thank you, but I'd prefer to stay outside.'<br/><span class="go-to">(<a href="2012.html" class="action-link">go to page 2012</a>)</span>
+                        'Thank you, but I'd prefer to stay outside.'<br/><span class="go-to">(<a href="2012" class="action-link">go to page 2012</a>)</span>
                     </li>
                 
                     <li class="action-item" data-target-page="2014">
-                        'I'd be grateful for some food and shelter.'<br/><span class="go-to">(<a href="2014.html" class="action-link">go to page 2014</a>)</span>
+                        'I'd be grateful for some food and shelter.'<br/><span class="go-to">(<a href="2014" class="action-link">go to page 2014</a>)</span>
                     </li>
                 
                     <li class="action-item" data-target-page="2012">
-                        'Thank you, but I'd prefer to stay outside.'<br/><span class="go-to">(<a href="2012.html" class="action-link">go to page 2012</a>)</span>
+                        'Thank you, but I'd prefer to stay outside.'<br/><span class="go-to">(<a href="2012" class="action-link">go to page 2012</a>)</span>
                     </li>
                 
                     <li class="action-item" data-target-page="2014">
-                        'I'd be grateful for some food and shelter.'<br/><span class="go-to">(<a href="2014.html" class="action-link">go to page 2014</a>)</span>
+                        'I'd be grateful for some food and shelter.'<br/><span class="go-to">(<a href="2014" class="action-link">go to page 2014</a>)</span>
                     </li>
                 
             </ul>
@@ -55,8 +55,8 @@
             
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
-                // Navigate to the .html file
-                window.location.href = `${targetPage}.html`;
+                // Navigate to the clean URL
+                window.location.href = `${targetPage}`;
             }
         });
     </script>

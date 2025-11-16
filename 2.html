@@ -27,7 +27,7 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="3">
-                        Turn and face the climb ahead.<br/><span class="go-to">(<a href="3.html" class="action-link">go to page 3</a>)</span>
+                        Turn and face the climb ahead.<br/><span class="go-to">(<a href="3" class="action-link">go to page 3</a>)</span>
                     </li>
                 
             </ul>
@@ -45,8 +45,8 @@
             
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
-                // Navigate to the .html file
-                window.location.href = `${targetPage}.html`;
+                // Navigate to the clean URL
+                window.location.href = `${targetPage}`;
             }
         });
     </script>

@@ -25,11 +25,11 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="19">
-                        Push deeper into the darkening woods.<br/><span class="go-to">(<a href="19.html" class="action-link">go to page 19</a>)</span>
+                        Push deeper into the darkening woods.<br/><span class="go-to">(<a href="19" class="action-link">go to page 19</a>)</span>
                     </li>
                 
                     <li class="action-item" data-target-page="16">
-                        Investigate a small clearing to the side.<br/><span class="go-to">(<a href="16.html" class="action-link">go to page 16</a>)</span>
+                        Investigate a small clearing to the side.<br/><span class="go-to">(<a href="16" class="action-link">go to page 16</a>)</span>
                     </li>
                 
             </ul>
@@ -47,8 +47,8 @@
             
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
-                // Navigate to the .html file
-                window.location.href = `${targetPage}.html`;
+                // Navigate to the clean URL
+                window.location.href = `${targetPage}`;
             }
         });
     </script>

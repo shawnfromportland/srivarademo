@@ -25,7 +25,7 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="41">
-                        Continue forward into the trees.<br/><span class="go-to">(<a href="41.html" class="action-link">go to page 41</a>)</span>
+                        Continue forward into the trees.<br/><span class="go-to">(<a href="41" class="action-link">go to page 41</a>)</span>
                     </li>
                 
             </ul>
@@ -43,8 +43,8 @@
             
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
-                // Navigate to the .html file
-                window.location.href = `${targetPage}.html`;
+                // Navigate to the clean URL
+                window.location.href = `${targetPage}`;
             }
         });
     </script>

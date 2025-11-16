@@ -25,11 +25,11 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="3">
-                        head up the dock to the winding bluff path.<br/><span class="go-to">(<a href="3.html" class="action-link">go to page 3</a>)</span>
+                        head up the dock to the winding bluff path.<br/><span class="go-to">(<a href="3" class="action-link">go to page 3</a>)</span>
                     </li>
                 
                     <li class="action-item" data-target-page="2">
-                        give the boat a final inspection before leaving<br/><span class="go-to">(<a href="2.html" class="action-link">go to page 2</a>)</span>
+                        give the boat a final inspection before leaving<br/><span class="go-to">(<a href="2" class="action-link">go to page 2</a>)</span>
                     </li>
                 
             </ul>
@@ -47,8 +47,8 @@
             
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
-                // Navigate to the .html file
-                window.location.href = `${targetPage}.html`;
+                // Navigate to the clean URL
+                window.location.href = `${targetPage}`;
             }
         });
     </script>
