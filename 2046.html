@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Page 2046</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-column">
+            <div style="color: #666;">No image</div>
+        </div>
+        
+        <div class="content-column">
+            <div class="page-number">[2046]</div>
+            
+            <div class="page-text">
+                The explorers were from earth. it took them years, generations to arrive here. it wasn't the plan to colonize, it was only supposed to be a detour here to repair the aging craft they traveled in. but the ships unexpectedly broke. after sending out exploratory parties in the region, they had discovered a fertile valley just inland from the coast, shletered from the harsh winds and storms, with fertile grounds, but it was subject to harsh sustained droughts cyclically. The explorers found the narrowest path from the sea to the fertile valley, and built a way for the seawater to irrigate the terraces of crops at srivara. its been more than 170 years since the last of the explorers passed away. The explorers were made up of many earth factions, but it was the religious minority among them who ended up with the most influence among the descendents of these lands. over the generations the religion has evolved from what it was on earth, adapted into a new metaphysics for srivara and for srivarans. 
+            </div>
+            
+            <ul class="actions-list">
+                
+                    <li class="action-item" data-target-page="669">
+                        ask to learn more about the religion at srivara<br/><span class="go-to">(<a href="669" class="action-link">go to page 669</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="1232">
+                        ask to learn more about the water project<br/><span class="go-to">(<a href="1232" class="action-link">go to page 1232</a>)</span>
+                    </li>
+                
+                    <li class="action-item" data-target-page="774">
+                        ask why they live out here isolated from the main village<br/><span class="go-to">(<a href="774" class="action-link">go to page 774</a>)</span>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Make action items clickable
+        document.addEventListener('click', (e) => {
+            const actionItem = e.target.closest('.action-item');
+            if (!actionItem) return;
+            
+            // Don't navigate if clicking on a link directly
+            if (e.target.tagName === 'A') return;
+            
+            const targetPage = actionItem.getAttribute('data-target-page');
+            if (targetPage) {
+                // Navigate to the clean URL
+                window.location.href = `${targetPage}`;
+            }
+        });
+    </script>
+</body>
+</html>
