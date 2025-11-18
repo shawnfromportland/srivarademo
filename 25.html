@@ -6,7 +6,7 @@
     <title>Srivara - Page 25</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
         
         <div class="content-column">
-            <div class="page-number">[25]</div>
+            <div class="page-number">25</div>
             
             <div class="page-text">
                 You now stand amidst the ruins as true darkness begins to settle. There are three partially intact stone structures, with scattered debris and overgrown paths between them. The main trail continues on through the far side of the abandoned village.
@@ -25,19 +25,31 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="26">
-                        check side of cabin ruin<br/><span class="go-to">(<a href="26" class="action-link">go to page 26</a>)</span>
+                        <div class="action-text-display">
+                            check side of cabin ruin
+                            <div class="go-to"><a href="26.html" class="action-link">go to page 26</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="27">
-                        Explore the first cabin.<br/><span class="go-to">(<a href="27" class="action-link">go to page 27</a>)</span>
+                        <div class="action-text-display">
+                            Explore the first cabin.
+                            <div class="go-to"><a href="27.html" class="action-link">go to page 27</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="28">
-                        Investigate the second cabin.<br/><span class="go-to">(<a href="28" class="action-link">go to page 28</a>)</span>
+                        <div class="action-text-display">
+                            Investigate the second cabin.
+                            <div class="go-to"><a href="28.html" class="action-link">go to page 28</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="29">
-                        Leave the ruins and continue on the main path.<br/><span class="go-to">(<a href="29" class="action-link">go to page 29</a>)</span>
+                        <div class="action-text-display">
+                            Leave the ruins and continue on the main path.
+                            <div class="go-to"><a href="29.html" class="action-link">go to page 29</a></div>
+                        </div>
                     </li>
                 
             </ul>
@@ -56,7 +68,7 @@
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
                 // Navigate to the clean URL
-                window.location.href = `${targetPage}`;
+                window.location.href = `${targetPage}.html`;
             }
         });
     </script>

@@ -6,7 +6,7 @@
     <title>Srivara - Page 37</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
         
         <div class="content-column">
-            <div class="page-number">[37]</div>
+            <div class="page-number">37</div>
             
             <div class="page-text">
                 You find a small, sheltered alcove in the cliff face, barely large enough to escape the deluge. The storm rages just outside in the blackness, but you are dry for now. You will need firewood to survive the cold, wet night.
@@ -26,15 +26,24 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="38">
-                        change your mind about camping and push on without sheltering from the storm<br/><span class="go-to">(<a href="38" class="action-link">go to page 38</a>)</span>
+                        <div class="action-text-display">
+                            change your mind about camping and push on without sheltering from the storm
+                            <div class="go-to"><a href="38.html" class="action-link">go to page 38</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="2041">
-                        Use FIREWOOD if you have it<br/><span class="go-to">(<a href="2041" class="action-link">go to page 2041</a>)</span>
+                        <div class="action-text-display">
+                            Use FIREWOOD if you have it
+                            <div class="go-to"><a href="2041.html" class="action-link">go to page 2041</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="2042">
-                        You have no firewood<br/><span class="go-to">(<a href="2042" class="action-link">go to page 2042</a>)</span>
+                        <div class="action-text-display">
+                            You have no firewood
+                            <div class="go-to"><a href="2042.html" class="action-link">go to page 2042</a></div>
+                        </div>
                     </li>
                 
             </ul>
@@ -53,7 +62,7 @@
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
                 // Navigate to the clean URL
-                window.location.href = `${targetPage}`;
+                window.location.href = `${targetPage}.html`;
             }
         });
     </script>

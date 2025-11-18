@@ -6,7 +6,7 @@
     <title>Srivara - Page 22</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
         
         <div class="content-column">
-            <div class="page-number">[22]</div>
+            <div class="page-number">22</div>
             
             <div class="page-text">
                 The path descends gently through rolling terrain revealing the stone ruins of a former primitive settlement. The wind is picking up and you feel a couple rain drops.
@@ -25,11 +25,17 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="25">
-                        approach the ruins<br/><span class="go-to">(<a href="25" class="action-link">go to page 25</a>)</span>
+                        <div class="action-text-display">
+                            approach the ruins
+                            <div class="go-to"><a href="25.html" class="action-link">go to page 25</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="29">
-                        continue down the main path towards Srivara<br/><span class="go-to">(<a href="29" class="action-link">go to page 29</a>)</span>
+                        <div class="action-text-display">
+                            continue down the main path towards Srivara
+                            <div class="go-to"><a href="29.html" class="action-link">go to page 29</a></div>
+                        </div>
                     </li>
                 
             </ul>
@@ -48,7 +54,7 @@
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
                 // Navigate to the clean URL
-                window.location.href = `${targetPage}`;
+                window.location.href = `${targetPage}.html`;
             }
         });
     </script>

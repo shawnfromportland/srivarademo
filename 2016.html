@@ -6,7 +6,7 @@
     <title>Srivara - Page 2016</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
         
         <div class="content-column">
-            <div class="page-number">[2016]</div>
+            <div class="page-number">2016</div>
             
             <div class="page-text">
                 You are seated at the dinner table with the kind old couple Shruti and Tamal. A bowl of hearty stew is placed before you. They are quiet but seem happy to have a guest.
@@ -25,23 +25,38 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="2024">
-                        Eat<br/><span class="go-to">(<a href="2024" class="action-link">go to page 2024</a>)</span>
+                        <div class="action-text-display">
+                            Eat
+                            <div class="go-to"><a href="2024.html" class="action-link">go to page 2024</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="2022">
-                        Ask them about Srivara<br/><span class="go-to">(<a href="2022" class="action-link">go to page 2022</a>)</span>
+                        <div class="action-text-display">
+                            Ask them about Srivara
+                            <div class="go-to"><a href="2022.html" class="action-link">go to page 2022</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="774">
-                        Ask them why they are out here so isolated away from the main village<br/><span class="go-to">(<a href="774" class="action-link">go to page 774</a>)</span>
+                        <div class="action-text-display">
+                            Ask them why they are out here so isolated away from the main village
+                            <div class="go-to"><a href="774.html" class="action-link">go to page 774</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="2012">
-                        Thank them for dinner and go to sleep<br/><span class="go-to">(<a href="2012" class="action-link">go to page 2012</a>)</span>
+                        <div class="action-text-display">
+                            Thank them for dinner and go to sleep
+                            <div class="go-to"><a href="2012.html" class="action-link">go to page 2012</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="2020">
-                        Thank them for the food and insist on traveling onwards through the night to Srivara.<br/><span class="go-to">(<a href="2020" class="action-link">go to page 2020</a>)</span>
+                        <div class="action-text-display">
+                            Thank them for the food and insist on traveling onwards through the night to Srivara.
+                            <div class="go-to"><a href="2020.html" class="action-link">go to page 2020</a></div>
+                        </div>
                     </li>
                 
             </ul>
@@ -60,7 +75,7 @@
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
                 // Navigate to the clean URL
-                window.location.href = `${targetPage}`;
+                window.location.href = `${targetPage}.html`;
             }
         });
     </script>

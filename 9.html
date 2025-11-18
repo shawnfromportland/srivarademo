@@ -6,7 +6,7 @@
     <title>Srivara - Page 9</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
         
         <div class="content-column">
-            <div class="page-number">[9]</div>
+            <div class="page-number">9</div>
             
             <div class="page-text">
                 You reach for the first handhold on the cliff face and you are committed to the route now. some loose rock crumbles away from your left hand to the endless fall below, but you are confident you can make this climb if you're careful. 
@@ -25,15 +25,24 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="8">
-                        it's too dangerous, turn back to the safe path<br/><span class="go-to">(<a href="8" class="action-link">go to page 8</a>)</span>
+                        <div class="action-text-display">
+                            it's too dangerous, turn back to the safe path
+                            <div class="go-to"><a href="8.html" class="action-link">go to page 8</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="1011">
-                        go for the outer route, try to climb up the roots and vegetation<br/><span class="go-to">(<a href="1011" class="action-link">go to page 1011</a>)</span>
+                        <div class="action-text-display">
+                            go for the outer route, try to climb up the roots and vegetation
+                            <div class="go-to"><a href="1011.html" class="action-link">go to page 1011</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="1012">
-                        Go for the inner route, up the crack with fist jambs<br/><span class="go-to">(<a href="1012" class="action-link">go to page 1012</a>)</span>
+                        <div class="action-text-display">
+                            Go for the inner route, up the crack with fist jambs
+                            <div class="go-to"><a href="1012.html" class="action-link">go to page 1012</a></div>
+                        </div>
                     </li>
                 
             </ul>
@@ -52,7 +61,7 @@
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
                 // Navigate to the clean URL
-                window.location.href = `${targetPage}`;
+                window.location.href = `${targetPage}.html`;
             }
         });
     </script>

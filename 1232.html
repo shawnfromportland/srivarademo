@@ -6,7 +6,7 @@
     <title>Srivara - Page 1232</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
         
         <div class="content-column">
-            <div class="page-number">[1232]</div>
+            <div class="page-number">1232</div>
             
             <div class="page-text">
                 only one of the most learned of the original explorers could lead the effort to actually succeed in creating electricity and clean water for the entire settlement to be possible, mr baliji. interestingly, his lineage had nothing to do with the religion that would later take over srivara generations after balijis passing.
@@ -25,15 +25,24 @@
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="669">
-                        ask about the religion at srivara<br/><span class="go-to">(<a href="669" class="action-link">go to page 669</a>)</span>
+                        <div class="action-text-display">
+                            ask about the religion at srivara
+                            <div class="go-to"><a href="669.html" class="action-link">go to page 669</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="2016">
-                        take a moment to reflect and glance into the fire<br/><span class="go-to">(<a href="2016" class="action-link">go to page 2016</a>)</span>
+                        <div class="action-text-display">
+                            take a moment to reflect and glance into the fire
+                            <div class="go-to"><a href="2016.html" class="action-link">go to page 2016</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="1010">
-                        ask what happened to baliji<br/><span class="go-to">(<a href="1010" class="action-link">go to page 1010</a>)</span>
+                        <div class="action-text-display">
+                            ask what happened to baliji
+                            <div class="go-to"><a href="1010.html" class="action-link">go to page 1010</a></div>
+                        </div>
                     </li>
                 
             </ul>
@@ -52,7 +61,7 @@
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
                 // Navigate to the clean URL
-                window.location.href = `${targetPage}`;
+                window.location.href = `${targetPage}.html`;
             }
         });
     </script>

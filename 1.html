@@ -6,7 +6,7 @@
     <title>Srivara - Page 1</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
         </div>
         
         <div class="content-column">
-            <div class="page-number">[1]</div>
+            <div class="page-number">1</div>
             
             <div class="page-text">
                 You step onto a weathered wooden dock in the cove. The weather has been fair on the journey thus far, but it is very late in the afternoon and you sense a weather shift coming  as you watch the clouds beginning to blow in.
@@ -26,11 +26,17 @@ You need to find shelter for the night and prepare for your day hike to the vill
             <ul class="actions-list">
                 
                     <li class="action-item" data-target-page="3">
-                        head up the dock to the winding bluff path.<br/><span class="go-to">(<a href="3" class="action-link">go to page 3</a>)</span>
+                        <div class="action-text-display">
+                            head up the dock to the winding bluff path.
+                            <div class="go-to"><a href="3.html" class="action-link">go to page 3</a></div>
+                        </div>
                     </li>
                 
                     <li class="action-item" data-target-page="2">
-                        give the boat a final inspection before leaving<br/><span class="go-to">(<a href="2" class="action-link">go to page 2</a>)</span>
+                        <div class="action-text-display">
+                            give the boat a final inspection before leaving
+                            <div class="go-to"><a href="2.html" class="action-link">go to page 2</a></div>
+                        </div>
                     </li>
                 
             </ul>
@@ -49,7 +55,7 @@ You need to find shelter for the night and prepare for your day hike to the vill
             const targetPage = actionItem.getAttribute('data-target-page');
             if (targetPage) {
                 // Navigate to the clean URL
-                window.location.href = `${targetPage}`;
+                window.location.href = `${targetPage}.html`;
             }
         });
     </script>
