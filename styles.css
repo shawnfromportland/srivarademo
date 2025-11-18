@@ -100,12 +100,33 @@ body.admin-mode .image-upload-container {
     color: #ff6b6b;
     margin-bottom: 2rem;
     text-align: right;
+    position: relative;
+    font-family: 'Pirata One', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.page-number::before {
+    content: "[";
+    font-size: 2.5rem;
+    padding-right: 1rem;
+    line-height: 1;
+}
+.page-number::after {
+    content: "]";
+    font-size: 2.5rem;
+    padding-left: 1rem;
+    line-height: 1;
 }
 .page-text {
     font-size: 1.4rem; /* Changed from 1.5rem */
     line-height: 1.8;
     margin-bottom: 3rem;
     color: #e0e0e0;
+}
+.page-text-display {
+    font-family: 'Crimson Text', serif;
+    white-space: pre-line;
 }
 .actions-list {
     list-style: none;
@@ -121,6 +142,7 @@ body.admin-mode .image-upload-container {
     border-left: 4px solid #ff6b6b;
     cursor: pointer;
     transition: background-color 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.05em;
 }
 .action-item:hover {
     background-color: rgba(255, 107, 107, 0.1);
@@ -137,25 +159,49 @@ body.admin-mode .action-item:hover {
     content: counter(action-counter) ". ";
     color: #ff6b6b;
     font-weight: bold;
+    font-family: 'Charm', cursive;
+    margin-right: 0.9rem;
 }
 .action-item .action-text-display,
 .action-item .action-text-edit {
     display: inline;
 }
+.action-text-display {
+    color: #c9a961;
+    font-family: 'Charm', cursive;
+    letter-spacing: 0.05em;
+}
+.action-item:hover .action-text-display {
+    color: #b8b8b8;
+}
 .action-link {
-    color: #4ecdc4;
+    color: #c9a961;
     text-decoration: none;
     border-bottom: 2px solid transparent;
     transition: border-color 0.2s;
 }
 .action-link:hover {
-    border-bottom-color: #4ecdc4;
+    border-bottom-color: #c9a961;
 }
 .go-to {
     color: #888;
-    font-style: italic;
-    display: inline-block;
-    padding-left: 2.5rem;
+    font-style: normal;
+    display: block;
+    text-align: right;
+    margin-top: 0.5rem;
+    font-family: 'Charm', cursive;
+    font-size: 0.95rem;
+}
+.go-to::before,
+.go-to::after {
+    content: "";
+}
+.go-to .action-link::before,
+.go-to .action-link::after {
+    content: "";
+}
+.action-item:hover .go-to .action-link {
+    border-bottom-color: #c9a961;
 }
 
 /* Admin mode styles */
@@ -174,7 +220,7 @@ body:not(.admin-mode) .action-text-edit {
     color: #e0e0e0;
     border: 1px solid #444;
     padding: 1rem;
-    font-family: 'Courier Prime', monospace;
+    font-family: 'Crimson Text', serif;
     font-size: 1.3rem;
     line-height: 1.8;
     resize: vertical;
@@ -185,8 +231,9 @@ body:not(.admin-mode) .action-text-edit {
     color: #e0e0e0;
     border: 1px solid #444;
     padding: 0.5rem;
-    font-family: 'Courier Prime', monospace;
+    font-family: 'Charm', cursive;
     font-size: 1.3rem;
+    letter-spacing: 0.05em;
 }
 .save-status {
     display: inline-block;
