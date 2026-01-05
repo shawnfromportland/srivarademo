@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="../dist/images/faviconurn.png">
+    <link rel="icon" type="image/png" href="images/faviconurn.png">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <style>
@@ -117,7 +117,7 @@
     <div id="demo-end-modal" class="modal">
         <div class="modal-content">
             <h2>End of Demo</h2>
-            <img src="../dist/images/srivara-vcover1.jpg" alt="Srivara Cover" style="max-width: 50%; height: auto; margin-bottom: 1.5rem; border-radius: 4px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);">
+            <img src="images/srivara-vcover1.jpg" alt="Srivara Cover" style="max-width: 50%; height: auto; margin-bottom: 1.5rem; border-radius: 4px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);">
             <p>You've reached the end of the demo experience. The full book contains the entire plant, the terraces and village of Srivara and its inhabitants, and the high peaks zone. The demo is approximately the first 20% of the full book.</p>
             <p>Srivara will be available as an e-book and print book. <a href="https://docs.google.com/forms/d/e/1FAIpQLScQpA2akOWH9xVG0K_ZmBMtiP1-aIfyZU6KMnNF9qTAl3337Q/viewform?usp=dialog" target="_blank">Sign up</a> to be notified of releases!</p>
             <a href="index.html" class="btn btn-red">Back to Srivara Site</a>
@@ -131,7 +131,7 @@
     
     <div class="container">
         <div class="image-column">
-            <img id="page-image-display" src="../dist/images/shawnfromportland_first_person_view_approaching_a_high_coasta_f764a1b9-a74d-4cfe-8d7c-0f3f252939ee_0.png" alt="Page 40">
+            <img id="page-image-display" src="images/shawnfromportland_first_person_view_approaching_a_high_coasta_f764a1b9-a74d-4cfe-8d7c-0f3f252939ee_0.png" alt="Page ${pageDisplayNum}">
             
             <div class="image-upload-container">
                 <div id="image-drop-zone" class="image-drop-zone">
@@ -309,7 +309,7 @@
                 
                 // Update image preview
                 const imageExt = filename.match(/\.(png|jpg|jpeg|gif|webp)$/i) ? '' : '.png';
-                const imagePath = 'dist/images/' + filename + imageExt;
+                const imagePath = 'images/' + filename + imageExt;
                 const imageDisplay = document.getElementById('page-image-display');
                 
                 if (imageDisplay.tagName === 'IMG') {
