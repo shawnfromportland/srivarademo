@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - How To Play</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="../dist/images/faviconurn.png">
+    <style>
+        .container {
+            max-width: 1400px;
+        }
+
+        .intro-heading {
+            font-family: 'Pirata One', cursive;
+            color: #ff6b6b;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgba(255, 107, 107, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+        }
+
+        .achievement-item {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            padding-left: 2.5rem;
+            position: relative;
+            color: #e0e0e0;
+            line-height: 1.4;
+        }
+
+        .achievement-item::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-size: 1.2rem;
+        }
+
+        .section-break {
+            margin: 3rem 0;
+            border: none;
+            border-top: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        .back-link-container {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #c9a961;
+            text-decoration: none;
+            font-family: 'Charm', cursive;
+            font-size: 1.3rem;
+            padding: 0.8rem 2rem;
+            border: 1px solid #c9a961;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .back-link:hover {
+            background: rgba(201, 169, 97, 0.1);
+            color: #fff;
+            border-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .enter-game-container {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .enter-game {
+            display: inline-block;
+            background: #ff6b6b;
+            color: #1a1a1a !important;
+            text-decoration: none;
+            font-family: 'Pirata One', cursive;
+            font-size: 2.2rem;
+            padding: 1rem 3rem;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .enter-game:hover {
+            background: #ff8787;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+            color: #000 !important;
+        }
+
+        /* Override content-column padding for this specific page */
+        .content-column {
+            padding: 5rem 4rem;
+        }
+
+        h3 {
+            font-family: 'Charm', cursive;
+            color: #c9a961;
+            font-size: 2.2rem;
+            margin: 2.5rem 0 1.5rem 0;
+        }
+
+        .highlight {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .page-text-display {
+            white-space: normal;
+        }
+
+        .page-text-display p {
+            margin-bottom: 1.5rem;
+        }
+
+        .page-text-display p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back-link-container" style="text-align: left; margin: 2rem 4rem 0 4rem;">
+        <a href="index" class="back-link">← Return to Srivara site</a>
+    </div>
+    <div class="container">
+        <!-- Left Column: Instructions -->
+        <div class="content-column">
+            <h2 class="intro-heading">How To Play</h2>
+            <div class="page-text">
+                <div class="page-text-display">
+                    <p>Srivara is <span class="highlight">not a linear book</span>. This is a non-linear adventure
+                        experience that can lead to multiple different endings based on the actions you choose.</p>
+                    <p><span class="highlight">Do not read the book page by page</span> – you will spoil the story and
+                        the puzzles.</p>
+                    <p>On each page, continue the story by selecting one action from the choices and turning to the page
+                        number indicated.</p>
+                    <p>If you make a fatal choice along your way, you will have to continue and try again from your
+                        previous save point. There are various save points throughout the adventure such as homes and
+                        camp sites.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Achievements & Entry -->
+        <div class="content-column">
+            <h2 class="intro-heading">Achievements</h2>
+            <ul class="achievement-list">
+                <li class="achievement-item">Play through with 0 deaths</li>
+                <li class="achievement-item">Reach Ending 1</li>
+                <li class="achievement-item">Reach Ending 2</li>
+                <li class="achievement-item">Reach Ending 3</li>
+                <li class="achievement-item">Reach Ending 4</li>
+                <li class="achievement-item">Reach Ending 5</li>
+                <li class="achievement-item">Reach Ending 6</li>
+                <li class="achievement-item">Find all 3 Journals</li>
+                <li class="achievement-item">Find all 3 Historic Artifacts</li>
+            </ul>
+
+            <div class="enter-game-container">
+                <a href="items" class="enter-game">Next Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

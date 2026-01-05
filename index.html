@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara Adventure Game Book</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/faviconurn.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            position: relative;
+            color: #f0f0f0;
+            font-family: 'Crimson Text', serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #B21717;
+            transition: color 0.3s ease;
+        }
+
+        a:visited {
+            color: #B21717;
+        }
+
+        a:hover {
+            color: #d11b1b;
+        }
+
+        a:active {
+            color: #B21717;
+        }
+
+        /* Fullscreen Slideshow */
+        .slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+        }
+
+        .slideshow-tint {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+            transform: scale(1);
+        }
+
+        .slide.active {
+            opacity: 1;
+            /* Animation handled by specific class added in JS */
+        }
+
+        .slide.pan-top {
+            animation: kenburns-top 24s ease-out forwards;
+        }
+
+        .slide.pan-bottom {
+            animation: kenburns-bottom 24s ease-out forwards;
+        }
+
+        @keyframes kenburns-top {
+            0% {
+                background-position: 50% 0%;
+                transform: scale(1.10);
+            }
+
+            100% {
+                background-position: 50% 25%;
+                transform: scale(1.0);
+            }
+        }
+
+        @keyframes kenburns-bottom {
+            0% {
+                background-position: 50% 100%;
+                transform: scale(1.0);
+            }
+
+            100% {
+                background-position: 50% 75%;
+                transform: scale(1.10);
+            }
+        }
+
+        /* Overlay for readability */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.3) 0%,
+                    rgba(0, 0, 0, 0.1) 40%,
+                    rgba(0, 0, 0, 0.7) 80%,
+                    rgba(0, 0, 0, 0.95) 100%);
+            z-index: -1;
+        }
+
+        /* Content Layout */
+        .content-wrapper {
+            max-width: 1020px;
+            width: 90%;
+            padding: 5rem 2rem 5rem 2rem;
+            /* More padding at top and bottom */
+            z-index: 10;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 2s ease-out;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+            border-radius: 12px;
+            margin-top: auto;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-family: 'Charm', cursive;
+            font-size: 9rem;
+            margin: 0;
+            color: #B21717;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-family: 'Charm', cursive;
+            font-size: 2.8rem;
+            margin: 2rem 0 1rem 0;
+            color: #B21717;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .cover-image {
+            max-width: 900px;
+            width: 90%;
+            height: auto;
+            margin: 1.5rem auto;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: block;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+            font-style: italic;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        p.description {
+            font-size: 1.35rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #bbb;
+            font-weight: 400;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        p.tagline {
+            font-family: 'Charm', cursive;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .purchase-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .sliding-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sliding-panel.show {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1rem;
+            padding-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #d4af37;
+            color: #000 !important;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #fff;
+            color: #000 !important;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-red {
+            background-color: #B21717;
+            color: #fff !important;
+            box-shadow: 0 0 20px rgba(178, 23, 23, 0.3);
+        }
+
+        .btn-red:hover {
+            background-color: #d11b1b;
+            color: #fff !important;
+            box-shadow: 0 0 30px rgba(209, 27, 27, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: #ff6719;
+            color: #fff !important;
+            border: 1px solid #ff6719;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ff8547;
+            color: #fff !important;
+            border-color: #ff8547;
+        }
+
+        .coffee-icon {
+            margin-right: 0.5rem;
+        }
+
+        .placeholder-text {
+            font-style: italic;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 360px;
+            margin: 4rem auto;
+            aspect-ratio: 9 / 16;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Thumbnail Carousel */
+        .thumbnail-carousel {
+            display: flex;
+            gap: 1.2rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            padding: 1.5rem 0.5rem 2rem 0.5rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            /* Force scrollbar to always show */
+            scrollbar-width: auto;
+            scrollbar-color: #B21717 rgba(255, 255, 255, 0.15);
+        }
+
+        .thumbnail-carousel::-webkit-scrollbar {
+            -webkit-appearance: none;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+        }
+
+        .thumbnail-carousel::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            margin: 0 10px;
+        }
+
+        .thumbnail-carousel::-webkit-scrollbar-thumb {
+            background: #B21717;
+            border-radius: 8px;
+            border: 2px solid rgba(0, 0, 0, 0.4);
+            min-width: 40px;
+        }
+
+        .thumbnail-carousel::-webkit-scrollbar-thumb:hover {
+            background: #d11b1b;
+        }
+
+        .thumbnail {
+            flex: 0 0 140px;
+            height: 248px;
+            /* 9:16 portrait ratio */
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .thumbnail:hover::after {
+            background: transparent;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 12px;
+            box-shadow: 0 0 60px rgba(178, 23, 23, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: #B21717;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+
+            .content-wrapper {
+                padding-bottom: 3rem;
+            }
+
+            .cta-buttons,
+            .purchase-group {
+                flex-direction: column;
+
+                width: 100%;
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            .btn {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            p.description {
+                text-align: center;
+            }
+        }
+
+        /* Book Cover Overlay Styles */
+        .book-cover-wrapper {
+            position: relative;
+            max-width: 900px;
+            width: 90%;
+            margin: 1.5rem auto;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: block;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .book-cover-wrapper .cover-image {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            border: none;
+            box-shadow: none;
+            display: block;
+        }
+
+        .book-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.4s ease;
+            z-index: 15;
+        }
+
+        .book-cover-wrapper:hover .book-overlay {
+            background-color: rgba(0, 0, 0, 0.65);
+        }
+
+        .overlay-btn {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .book-cover-wrapper:hover .overlay-btn {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideshow">
+        <div class="slide active"
+            style="background-image: url('images/shawnfromportland_a_hay_pole_barn_to_make_camp_for_the_night__97146c69-4825-4cee-8b27-24f507efcdc0_1.png');">
+        </div>
+        <div class="slide"
+            style="background-image: url('images/shawnfromportland_a_landscape_scene_from_a_fertile_terraced_f_0df4bf47-01a9-4035-9158-6f5a6599f5d5_0.png');">
+        </div>
+        <div class="slide"
+            style="background-image: url('images/shawnfromportland_a_landscape_scene_from_a_rugged_high_mounta_6af28c89-b893-4c7a-8ae8-1ed9a16d91fb_3.png');">
+        </div>
+        <div class="slide"
+            style="background-image: url('images/shawnfromportland_A_windswept_coastal_landscape_of_rocky_bluf_a9b4476c-6ecd-451b-bef0-bf60bd9b31a5_3.png');">
+        </div>
+        <div class="slide"
+            style="background-image: url('images/shawnfromportland_first-person_view_in_a_small_personal_boath_08dbd0f9-bbd0-4687-a430-b14e4a06491f_0.png');">
+        </div>
+        <div class="slide"
+            style="background-image: url('images/shawnfromportland_first-person_view_inside_a_rustic_middle-ea_52178786-c52c-4044-9df9-103b8daf7a22_2.png');">
+        </div>
+        <div class="slide"
+            style="background-image: url('images/shawnfromportland_vintage-inspried_gamebook_graphic_novel_cov_fd962f42-d2f8-403b-9efb-1da39314fd4b_1.png');">
+        </div>
+    </div>
+
+    <div class="slideshow-tint"></div>
+    <div class="overlay"></div>
+
+    <div class="content-wrapper">
+        <h1>Srivara</h1>
+
+        <div class="subtitle">An Interactive Adventure Game Book</div>
+
+        <a href="enter.html" class="book-cover-wrapper">
+            <img src="images/srivara-vcover1.jpg" alt="Srivara Cover" class="cover-image">
+            <div class="book-overlay">
+                <span class="btn btn-red overlay-btn">Enter Srivara Now (Demo)</span>
+            </div>
+        </a>
+
+        <div class="cta-buttons">
+            <a href="enter" class="btn btn-primary">Enter Srivara Now (Demo)</a>
+
+        </div>
+        <p class="description">
+            You had heard about Srivara only in historic legends, and now as a traveler, excited and curious, you are
+            about to set foot upon it’s distant lands for the first time. Few visitors have ever made it out here this
+            far.
+        </p>
+        <p class="description">The current inhabitants of the once-abundant lands of Srivara are mostly descendents of
+            the original settlers. For nearly two centuries, fresh water flowed and the terraced gardens of the
+            settlement were fertile.</p>
+
+        <p class="description">But the people are in trouble now, as the world has gone into a drought super-cycle in
+            recent years. Hear their stories, experience their culture, religion, and engineering. Determine your fate
+            and possibly the fate of Srivara itself through your choices.</p>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/7vn-pZmRO30" title="Srivara Preview"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p class="description">
+            Hundreds of playthrough experiences possible, 8 death scenarios and 6 different endings, chosen by your
+            decisions in Srivara. Unique character interactions, Minor puzzles, and no complex game mechanics, with a
+            unique art style inspired by 1980s adventure gamebooks.
+        </p>
+        <p class="description">
+            Srivara is designed to be fully playable as a non-linear graphic novel point-and-click game in both print
+            and e-book
+            formats, and may come to Steam eventually.
+        </p>
+
+        <div class="purchase-group">
+            <a href="javascript:void(0)" class="btn btn-red purchase-trigger">Buy e-book</a>
+
+            <a href="javascript:void(0)" class="btn btn-red purchase-trigger">Buy print book</a>
+        </div>
+        <div class="purchase-group">
+            <a href="javascript:void(0)" class="btn btn-red purchase-trigger">Buy on Steam</a>
+        </div>
+
+        <div id="purchase-options" class="sliding-panel">
+            <p class="placeholder-text">
+                The full book is still in development.</p>
+            <p class="placeholder-text">
+                You can buy me a coffee to express your interest</p>
+            <p class="placeholder-text"><a target="_blank"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScQpA2akOWH9xVG0K_ZmBMtiP1-aIfyZU6KMnNF9qTAl3337Q/viewform?usp=dialog">Get
+                    notified</a> when it is available.
+            </p>
+
+            <p class="placeholder-text">
+                for now, <a href="enter">try the demo!</a>
+            </p>
+            <a href="https://buymeacoffee.com/shawnfromportland" target="_blank" class="btn btn-secondary">
+                <span class="coffee-icon">☕</span> Buy Me a Coffee
+            </a>
+        </div>
+
+
+
+        <div class="thumbnail-carousel">
+            <div class="thumbnail"
+                onclick="openLightbox('images/shawnfromportland_vintage-inspried_gamebook_graphic_novel_cov_fd962f42-d2f8-403b-9efb-1da39314fd4b_1.png')"
+                style="background-image: url('images/shawnfromportland_vintage-inspried_gamebook_graphic_novel_cov_fd962f42-d2f8-403b-9efb-1da39314fd4b_1.png');">
+            </div>
+            <div class="thumbnail"
+                onclick="openLightbox('images/shawnfromportland_first-person_view_in_a_small_personal_boath_08dbd0f9-bbd0-4687-a430-b14e4a06491f_0.png')"
+                style="background-image: url('images/shawnfromportland_first-person_view_in_a_small_personal_boath_08dbd0f9-bbd0-4687-a430-b14e4a06491f_0.png');">
+            </div>
+            <div class="thumbnail"
+                onclick="openLightbox('images/shawnfromportland_first-person_view_inside_a_rustic_middle-ea_52178786-c52c-4044-9df9-103b8daf7a22_2.png')"
+                style="background-image: url('images/shawnfromportland_first-person_view_inside_a_rustic_middle-ea_52178786-c52c-4044-9df9-103b8daf7a22_2.png');">
+            </div>
+            <div class="thumbnail"
+                onclick="openLightbox('images/shawnfromportland_httpss.mj.runSCiM7s9uBJM_midnight_black_ski_16b7a1fd-4435-425c-9078-7b557427c244_1.png')"
+                style="background-image: url('images/shawnfromportland_httpss.mj.runSCiM7s9uBJM_midnight_black_ski_16b7a1fd-4435-425c-9078-7b557427c244_1.png');">
+            </div>
+            <div class="thumbnail"
+                onclick="openLightbox('images/shawnfromportland_a_hay_pole_barn_to_make_camp_for_the_night__97146c69-4825-4cee-8b27-24f507efcdc0_1.png')"
+                style="background-image: url('images/shawnfromportland_a_hay_pole_barn_to_make_camp_for_the_night__97146c69-4825-4cee-8b27-24f507efcdc0_1.png');">
+            </div>
+            <div class="thumbnail"
+                onclick="openLightbox('images/shawnfromportland_a_landscape_scene_from_a_fertile_terraced_f_0df4bf47-01a9-4035-9158-6f5a6599f5d5_0.png')"
+                style="background-image: url('images/shawnfromportland_a_landscape_scene_from_a_fertile_terraced_f_0df4bf47-01a9-4035-9158-6f5a6599f5d5_0.png');">
+            </div>
+            <div class="thumbnail"
+                onclick="openLightbox('images/shawnfromportland_a_landscape_scene_from_a_rugged_high_mounta_6af28c89-b893-4c7a-8ae8-1ed9a16d91fb_3.png')"
+                style="background-image: url('images/shawnfromportland_a_landscape_scene_from_a_rugged_high_mounta_6af28c89-b893-4c7a-8ae8-1ed9a16d91fb_3.png');">
+            </div>
+            <div class="thumbnail"
+                onclick="openLightbox('images/shawnfromportland_A_windswept_coastal_landscape_of_rocky_bluf_a9b4476c-6ecd-451b-bef0-bf60bd9b31a5_3.png')"
+                style="background-image: url('images/shawnfromportland_A_windswept_coastal_landscape_of_rocky_bluf_a9b4476c-6ecd-451b-bef0-bf60bd9b31a5_3.png');">
+            </div>
+        </div>
+
+        <p class="tagline">শ্রীভারা</p>
+        <p>
+            by <a href="https://shawnfromportland.com">Shawn K</a> 2025 </p>
+    </div>
+
+
+
+    </div>
+
+
+    </div>
+
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close">&times;</div>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="Enlarged View">
+    </div>
+
+    <script>
+        // Slideshow Script with Ken Burns Effect
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        // Initialize first slide
+        slides[0].classList.add('active', 'pan-top');
+
+        function nextSlide() {
+            // Remove active and pan classes from current
+            slides[currentSlide].className = 'slide';
+
+            // Increment
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            // Add active and alternate pan direction
+            const direction = currentSlide % 2 === 0 ? 'pan-top' : 'pan-bottom';
+            slides[currentSlide].classList.add('active', direction);
+        }
+
+        // Change slide every 12 seconds to allow animation to play out a bit
+        setInterval(nextSlide, 12000);
+
+        // Purchase Options Toggle
+        const purchaseButtons = document.querySelectorAll('.purchase-trigger');
+        const purchaseOptions = document.getElementById('purchase-options');
+
+        purchaseButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                purchaseOptions.classList.toggle('show');
+                // Scroll into view if needed
+                if (purchaseOptions.classList.contains('show')) {
+                    setTimeout(() => {
+                        purchaseOptions.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 300);
+                }
+            });
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        // Collect all image sources from thumbnails
+        const imageSources = [
+            'images/shawnfromportland_vintage-inspried_gamebook_graphic_novel_cov_fd962f42-d2f8-403b-9efb-1da39314fd4b_1.png',
+            'images/shawnfromportland_first-person_view_in_a_small_personal_boath_08dbd0f9-bbd0-4687-a430-b14e4a06491f_0.png',
+            'images/shawnfromportland_first-person_view_inside_a_rustic_middle-ea_52178786-c52c-4044-9df9-103b8daf7a22_2.png',
+            'images/shawnfromportland_httpss.mj.runSCiM7s9uBJM_midnight_black_ski_16b7a1fd-4435-425c-9078-7b557427c244_1.png',
+            'images/shawnfromportland_a_hay_pole_barn_to_make_camp_for_the_night__97146c69-4825-4cee-8b27-24f507efcdc0_1.png',
+            'images/shawnfromportland_a_landscape_scene_from_a_fertile_terraced_f_0df4bf47-01a9-4035-9158-6f5a6599f5d5_0.png',
+            'images/shawnfromportland_a_landscape_scene_from_a_rugged_high_mounta_6af28c89-b893-4c7a-8ae8-1ed9a16d91fb_3.png',
+            'images/shawnfromportland_A_windswept_coastal_landscape_of_rocky_bluf_a9b4476c-6ecd-451b-bef0-bf60bd9b31a5_3.png'
+        ];
+        let currentImageIndex = 0;
+
+        function openLightbox(src) {
+            currentImageIndex = imageSources.indexOf(src);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightbox() {
+            lightboxImg.src = imageSources[currentImageIndex];
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + imageSources.length) % imageSources.length;
+            updateLightbox();
+        }
+
+        // Keyboard Navigation for Lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+
+            e.preventDefault();
+
+            if (e.key === 'ArrowRight') {
+                nextImage();
+            } else if (e.key === 'ArrowLeft') {
+                prevImage();
+            } else if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>

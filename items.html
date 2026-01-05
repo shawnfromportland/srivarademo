@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srivara - Items</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="../dist/images/faviconurn.png">
+    <style>
+        .container {
+            max-width: 1400px;
+        }
+
+        .intro-heading {
+            font-family: 'Pirata One', cursive;
+            color: #ff6b6b;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid rgba(255, 107, 107, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .back-link-container {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #c9a961;
+            text-decoration: none;
+            font-family: 'Charm', cursive;
+            font-size: 1.3rem;
+            padding: 0.8rem 2rem;
+            border: 1px solid #c9a961;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .back-link:hover {
+            background: rgba(201, 169, 97, 0.1);
+            color: #fff;
+            border-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .enter-game-container {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .enter-game {
+            display: inline-block;
+            background: #ff6b6b;
+            color: #1a1a1a !important;
+            text-decoration: none;
+            font-family: 'Pirata One', cursive;
+            font-size: 2.2rem;
+            padding: 1rem 3rem;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .enter-game:hover {
+            background: #ff8787;
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+            color: #000 !important;
+        }
+
+        .content-column {
+            padding: 5rem 4rem;
+        }
+
+        h3 {
+            font-family: 'Charm', cursive;
+            color: #c9a961;
+            font-size: 2.2rem;
+            margin: 2.5rem 0 1.5rem 0;
+        }
+
+        .highlight {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        /* Items Table Styles */
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            margin-top: 1rem;
+        }
+
+        .items-table th,
+        .items-table td {
+            border: 2px solid #ff6b6b;
+            padding: 0.8rem 1rem;
+            text-align: center;
+        }
+
+        .items-table th {
+            color: #ff6b6b;
+            font-family: 'Charm', cursive;
+            font-size: 1.4rem;
+            background: rgba(255, 107, 107, 0.05);
+        }
+
+        .items-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .items-table th:nth-child(1),
+        .items-table td:nth-child(1) {
+            width: 80px;
+        }
+
+        .page-text-display {
+            white-space: normal;
+        }
+
+        .page-text-display p {
+            margin-bottom: 1.5rem;
+        }
+
+        .page-text-display p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Column: Instructions -->
+        <div class="content-column">
+            <h2 class="intro-heading">Items</h2>
+            <div class="page-text">
+                <div class="page-text-display">
+                    <p>There are items you can find and collect during your adventure in Srivara. These items might help
+                        you survive or unlock puzzles.</p>
+                    <p>Keep track of which items you have found during your journey by making a copy of the attached
+                        items sheet and filling it out.</p>
+                    <p>To prevent spoilers, items in the story may be referenced by number only, and you may be required
+                        to give the item’s code to pass some puzzles.</p>
+                    <p>
+                        You begin with no items.
+                    </p>
+                </div>
+            </div>
+            <div class="back-link-container">
+                <a href="enter" class="back-link">← Previous Page</a>
+            </div>
+        </div>
+
+        <!-- Right Column: Items Table -->
+        <div class="content-column">
+            <h2 class="intro-heading">Items</h2>
+
+            <table class="items-table">
+                <thead>
+                    <tr>
+                        <th>Item<br>Number</th>
+                        <th>Item<br>Name</th>
+                        <th>Item<br>Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="enter-game-container">
+                <a href="1" class="enter-game">Begin the Journey</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
