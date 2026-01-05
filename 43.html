@@ -9,10 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Eagle+Lake&family=Grenze+Gotisch:wght@100..900&family=IM+Fell+Great+Primer:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Pirata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/faviconurn.png">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <style>
-        /* Page Transition Overlay */
         #page-transition-overlay {
             position: fixed;
             top: 0;
@@ -25,13 +22,10 @@
             opacity: 1;
             transition: opacity 1s ease-in-out;
         }
-        
         #page-transition-overlay.hidden {
             opacity: 0;
             pointer-events: none;
         }
-
-        /* End of Demo Modal */
         .modal {
             position: fixed;
             top: 0;
@@ -47,13 +41,11 @@
             transition: opacity 0.5s ease;
             backdrop-filter: blur(5px);
         }
-        
         .modal.show {
             display: flex;
             opacity: 1;
             pointer-events: auto;
         }
-        
         .modal-content {
             background-color: rgba(20, 20, 20, 0.95);
             padding: 3rem;
@@ -63,545 +55,97 @@
             border: 1px solid #333;
             box-shadow: 0 0 50px rgba(0,0,0,0.8);
             color: #e0e0e0;
-            font-family: 'Crimson Text', serif;
         }
-
         .modal-content h2 {
             font-family: 'Charm', cursive;
             color: #B21717;
             font-size: 3rem;
             margin-top: 0;
-            margin-bottom: 1.5rem;
         }
-        
-        .modal-content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Button Styles */
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid transparent;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-
-        .btn-red {
             background-color: #B21717;
             color: #fff !important;
-            box-shadow: 0 0 20px rgba(178, 23, 23, 0.3);
-        }
-
-        .btn-red:hover {
-            background-color: #d11b1b;
-            color: #fff !important;
-            box-shadow: 0 0 30px rgba(209, 27, 27, 0.5);
-            transform: translateY(-2px);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body>
     <div id="page-transition-overlay"></div>
-
-    <!-- End of Demo Modal -->
     <div id="demo-end-modal" class="modal">
         <div class="modal-content">
             <h2>End of Demo</h2>
-            <img src="images/srivara-vcover1.jpg" alt="Srivara Cover" style="max-width: 50%; height: auto; margin-bottom: 1.5rem; border-radius: 4px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);">
-            <p>You've reached the end of the demo experience. The full book contains the entire plant, the terraces and village of Srivara and its inhabitants, and the high peaks zone. The demo is approximately the first 20% of the full book.</p>
-            <p>Srivara will be available as an e-book and print book. <a href="https://docs.google.com/forms/d/e/1FAIpQLScQpA2akOWH9xVG0K_ZmBMtiP1-aIfyZU6KMnNF9qTAl3337Q/viewform?usp=dialog" target="_blank">Sign up</a> to be notified of releases!</p>
-            <a href="index.html" class="btn btn-red">Back to Srivara Site</a>
+            <img src="images/srivara-vcover1.jpg" alt="Srivara Cover" style="max-width: 50%; height: auto; margin-bottom: 1.5rem; border-radius: 4px;">
+            <p>You've reached the end of the demo experience.</p>
+            <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScQpA2akOWH9xVG0K_ZmBMtiP1-aIfyZU6KMnNF9qTAl3337Q/viewform?usp=dialog" target="_blank" style="color: #ff6b6b">Sign up</a> to be notified of releases!</p>
+            <a href="index.html" class="btn">Back to Srivara Site</a>
         </div>
     </div>
-    <div class="admin-toggle">
-        <label for="admin-mode">Admin Mode</label>
-        <input type="checkbox" id="admin-mode">
-        <span id="save-status" class="save-status"></span>
-    </div>
-    
+
     <div class="container">
         <div class="image-column">
-            <img id="page-image-display" src="images/shawnfromportland_httpss.mj.rungVOoG-S9MAI_httpss.mj.runfiCw9_055a253f-76bd-4104-aae9-c25fc6a8645c_0.png" alt="Page ${pageDisplayNum}">
-            
-            <div class="image-upload-container">
-                <div id="image-drop-zone" class="image-drop-zone">
-                    <div class="drop-text">📁 Drop Image File Here</div>
-                    <div class="drop-hint">or click to browse</div>
-                    <input type="file" id="page-image-file" accept="image/*" style="display: none;">
-                </div>
-                <div style="margin-top: 1rem; color: #888; font-size: 0.9rem;">
-                    Current: <span id="current-image-name">shawnfromportland_httpss.mj.rungVOoG-S9MAI_httpss.mj.runfiCw9_055a253f-76bd-4104-aae9-c25fc6a8645c_0</span>
-                </div>
-            </div>
+            <img src="images/shawnfromportland_httpss.mj.rungVOoG-S9MAI_httpss.mj.runfiCw9_055a253f-76bd-4104-aae9-c25fc6a8645c_0.png" alt="Page 43">
         </div>
         
         <div class="content-column">
             <div class="page-number">43</div>
-            
             <div class="page-text">
                 <div class="page-text-display">if we can make a life for ourselves and be left alone in peace out here, that is enough for us. </div>
-                <div class="page-text-edit">
-                    <textarea id="page-text">if we can make a life for ourselves and be left alone in peace out here, that is enough for us. </textarea>
-                </div>
             </div>
             
-            <ul class="actions-list" id="actions-list">
+            <ul class="actions-list">
                 
-                    <li class="action-item" data-action-id="287" data-is-saved="true" data-target-page="48">
+                    <li class="action-item" data-target-page="48">
                         <div class="action-text-display">
                             rejoin the couple at the table
-                            <div class="go-to"><a href="48" class="action-link">go to page 48</a></div>
-                        </div>
-                        <div class="action-text-edit">
-                            <input type="text" class="action-text-input" value="rejoin the couple at the table" placeholder="Action text">
-                            <input type="text" class="action-to-page-input" value="2016" placeholder="To page ID (internal)" style="margin-top: 0.5rem;">
-                            <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-                                <button class="action-save-btn" data-action-id="287">Save</button>
-                                <button class="action-go-btn" data-action-id="287">Go</button>
-                                <button class="action-delete-btn" data-action-id="287">Delete</button>
-                            </div>
+                            <div class="go-to"><a href="48.html" class="action-link">go to page 48</a></div>
                         </div>
                     </li>
                 
             </ul>
-            
-            <div class="action-controls">
-                <button id="add-action-btn">Add Action</button>
-            </div>
         </div>
     </div>
     
     <script>
-        // Page Transition Script
         document.addEventListener('DOMContentLoaded', () => {
             const overlay = document.getElementById('page-transition-overlay');
+            setTimeout(() => { overlay.classList.add('hidden'); }, 50);
             
-            // Fade in on load
-            setTimeout(() => {
-                overlay.classList.add('hidden');
-            }, 50);
-            
-            // Intercept navigation links
             document.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    
-                    // Don't intercept anchor links on same page, javascript: calls, or target blank
                     if (!href || href.startsWith('#') || href.startsWith('javascript:') || this.target === '_blank') return;
                     
-                    // Don't intercept admin/action controls unless they are navigation
-                    if (this.classList.contains('action-delete-btn') || this.classList.contains('action-save-btn')) return;
-                    
-                    // SPECIAL CASE: Page 100 (End of Demo)
-                    // Check if href is exactly 100 or ends with /100 or /100.html
                     if (href === '100' || href === '100.html' || href.endsWith('/100') || href.endsWith('/100.html')) {
                         e.preventDefault();
-                        const modal = document.getElementById('demo-end-modal');
-                        modal.classList.add('show');
+                        document.getElementById('demo-end-modal').classList.add('show');
                         return;
                     }
                     
-                    // For action links and enter-game links (and standard nav)
                     e.preventDefault();
-                    
-                    // Fade out
                     overlay.classList.remove('hidden');
-                    
-                    // Wait for transition then navigate
-                    setTimeout(() => {
-                        window.location.href = href;
-                    }, 500);
+                    setTimeout(() => { window.location.href = href; }, 500);
                 });
             });
-        });
 
-        const API_BASE = 'http://localhost:3001/api';
-        const PAGE_ID = '774';
-        const REGION_NAME = 'bluffs';
-        
-        // Admin mode toggle - persist in sessionStorage
-        const adminToggle = document.getElementById('admin-mode');
-        
-        // Check sessionStorage for admin mode state
-        const savedAdminMode = sessionStorage.getItem('admin-mode') === 'true';
-        if (savedAdminMode) {
-            adminToggle.checked = true;
-            document.body.classList.add('admin-mode');
-        }
-        
-        adminToggle.addEventListener('change', (e) => {
-            if (e.target.checked) {
-                document.body.classList.add('admin-mode');
-                sessionStorage.setItem('admin-mode', 'true');
-            } else {
-                document.body.classList.remove('admin-mode');
-                sessionStorage.setItem('admin-mode', 'false');
-            }
-        });
-        
-        // Make action items clickable in non-admin mode
-        document.addEventListener('click', (e) => {
-            const actionItem = e.target.closest('.action-item');
-            if (!actionItem) return;
-            
-            // Don't navigate if in admin mode or clicking on inputs/buttons
-            if (document.body.classList.contains('admin-mode')) return;
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
-            
-            const targetPage = actionItem.getAttribute('data-target-page');
-            if (targetPage) {
-                // SPECIAL CASE: Page 100 (End of Demo)
-                if (targetPage === '100' || targetPage === '100.html' || targetPage.endsWith('/100') || targetPage.endsWith('/100.html')) {
-                    const modal = document.getElementById('demo-end-modal');
-                    modal.classList.add('show');
-                    return;
-                }
-                
-                window.location.href = `${targetPage}`;
-            }
-        });
-        
-        // Image upload functionality
-        const dropZone = document.getElementById('image-drop-zone');
-        const fileInput = document.getElementById('page-image-file');
-        
-        // Debounced save for image
-        const debouncedSaveImage = _.debounce(async (filename) => {
-            showSaveStatus('saving');
-            
-            try {
-                await axios.put(`${API_BASE}/pages/${PAGE_ID}`, {
-                    image: filename,
-                    region_name: REGION_NAME
-                });
-                
-                // Update current image name display
-                document.getElementById('current-image-name').textContent = filename;
-                
-                // Copy images from nested structure to dist/images
-                await axios.post(`${API_BASE}/copy-images`);
-                
-                // Update image preview
-                const imageExt = filename.match(/\.(png|jpg|jpeg|gif|webp)$/i) ? '' : '.png';
-                const imagePath = 'images/' + filename + imageExt;
-                const imageDisplay = document.getElementById('page-image-display');
-                
-                if (imageDisplay.tagName === 'IMG') {
-                    imageDisplay.src = imagePath;
-                } else {
-                    const newImg = document.createElement('img');
-                    newImg.id = 'page-image-display';
-                    newImg.src = imagePath;
-                    newImg.alt = 'Page ' + PAGE_ID;
-                    imageDisplay.replaceWith(newImg);
-                }
-                
-                // Auto-regenerate this page's HTML
-                await axios.post(`${API_BASE}/regenerate/demo/${PAGE_ID}`);
-                
-                showSaveStatus('saved');
-            } catch (error) {
-                showSaveStatus('error');
-                console.error('Save error:', error);
-            }
-        }, 1000);
-        
-        // Handle file selection
-        function handleFileSelect(file) {
-            if (file && file.type.startsWith('image/')) {
-                // Extract filename without extension
-                let filename = file.name;
-                filename = filename.replace(/\.(png|jpg|jpeg|gif|webp)$/i, '');
-                debouncedSaveImage(filename);
-            }
-        }
-        
-        // Click to browse
-        dropZone.addEventListener('click', () => {
-            fileInput.click();
-        });
-        
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleFileSelect(e.target.files[0]);
-            }
-        });
-        
-        // Drag and drop
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.classList.add('drag-over');
-        });
-        
-        dropZone.addEventListener('dragleave', () => {
-            dropZone.classList.remove('drag-over');
-        });
-        
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.classList.remove('drag-over');
-            
-            if (e.dataTransfer.files.length > 0) {
-                handleFileSelect(e.dataTransfer.files[0]);
-            }
-        });
-        
-        // Debounced save for page text
-        const debouncedSavePageText = _.debounce(async () => {
-            const status = document.getElementById('save-status');
-            status.textContent = 'Saving...';
-            status.className = 'save-status saving';
-            
-            try {
-                const text = document.getElementById('page-text').value;
-                await axios.put(`${API_BASE}/pages/${PAGE_ID}`, {
-                    text: text,
-                    region_name: REGION_NAME
-                });
-                
-                // Update display text
-                document.querySelector('.page-text-display').textContent = text;
-                
-                // Auto-regenerate this page's HTML
-                await axios.post(`${API_BASE}/regenerate/demo/${PAGE_ID}`);
-                
-                status.textContent = 'Saved';
-                status.className = 'save-status saved';
-                setTimeout(() => {
-                    status.textContent = '';
-                    status.className = 'save-status';
-                }, 2000);
-            } catch (error) {
-                status.textContent = 'Error';
-                status.className = 'save-status error';
-                console.error('Save error:', error);
-                console.error('Error object:', JSON.stringify(error, null, 2));
-                let errorMsg = 'Unknown error';
-                if (error.response) {
-                    console.error('Error response:', error.response);
-                    console.error('Error response data:', error.response.data);
-                    console.error('Error response status:', error.response.status);
-                    if (error.response.data) {
-                        if (typeof error.response.data === 'string') {
-                            errorMsg = error.response.data;
-                        } else if (error.response.data.error) {
-                            errorMsg = error.response.data.error;
-                        } else if (error.response.data.message) {
-                            errorMsg = error.response.data.message;
-                        } else {
-                            errorMsg = JSON.stringify(error.response.data);
-                        }
+            document.addEventListener('click', (e) => {
+                const actionItem = e.target.closest('.action-item');
+                if (!actionItem || e.target.tagName === 'A') return;
+                const targetPage = actionItem.getAttribute('data-target-page');
+                if (targetPage) {
+                    if (targetPage === '100') {
+                        document.getElementById('demo-end-modal').classList.add('show');
                     } else {
-                        errorMsg = 'Server returned ' + error.response.status;
+                        overlay.classList.remove('hidden');
+                        setTimeout(() => { window.location.href = `${targetPage}.html`; }, 500);
                     }
-                } else if (error.message) {
-                    errorMsg = error.message;
                 }
-                alert('Error saving: ' + errorMsg);
-            }
-        }, 1000);
-        
-        function showSaveStatus(status) {
-            const statusEl = document.getElementById('save-status');
-            if (status === 'saving') {
-                statusEl.textContent = 'Saving...';
-                statusEl.className = 'save-status saving';
-            } else if (status === 'saved') {
-                statusEl.textContent = 'Saved';
-                statusEl.className = 'save-status saved';
-                setTimeout(() => {
-                    statusEl.textContent = '';
-                    statusEl.className = 'save-status';
-                }, 2000);
-            } else if (status === 'error') {
-                statusEl.textContent = 'Error';
-                statusEl.className = 'save-status error';
-            }
-        }
-        
-        // Manual save for updating existing action
-        async function saveAction(actionId, text, toPageId) {
-            if (!text || !toPageId) {
-                alert('Please fill in both action text and target page ID');
-                return;
-            }
-            
-            showSaveStatus('saving');
-            
-            try {
-                await axios.put(`${API_BASE}/actions/${actionId}`, {
-                    text: text,
-                    to_page_id: toPageId
-                });
-                
-                // Update display 
-                const actionItem = document.querySelector(`[data-action-id="${actionId}"]`);
-                
-                // Auto-regenerate this page's HTML
-                await axios.post(`${API_BASE}/regenerate/demo/${PAGE_ID}`);
-                
-                showSaveStatus('saved');
-            } catch (error) {
-                showSaveStatus('error');
-                console.error('Save error:', error);
-                alert('Failed to save action: ' + (error.response?.data?.error || error.message));
-            }
-        }
-        
-        // Manual save for creating new action
-        async function createAction(tempId, text, toPageId) {
-            if (!text || !toPageId) {
-                alert('Please fill in both action text and target page ID');
-                return;
-            }
-            
-            showSaveStatus('saving');
-            
-            try {
-                const response = await axios.post(`${API_BASE}/actions`, {
-                    from_page_id: PAGE_ID,
-                    to_page_id: toPageId,
-                    text: text,
-                    region_name: REGION_NAME
-                });
-                
-                // Auto-regenerate this page's HTML
-                await axios.post(`${API_BASE}/regenerate/demo/${PAGE_ID}`);
-                
-                showSaveStatus('saved');
-                window.location.reload();
-            } catch (error) {
-                showSaveStatus('error');
-                console.error('Save error:', error);
-                alert('Failed to create action: ' + (error.response?.data?.error || error.message));
-            }
-        }
-        
-        // Go to action target page while preserving admin mode
-        function goToActionPage(toPageId) {
-            if (!toPageId) {
-                alert('Please enter a target page ID');
-                return;
-            }
-            
-            // SPECIAL CASE: Page 100 (End of Demo)
-            if (toPageId === '100' || toPageId === '100.html' || toPageId.endsWith('/100') || toPageId.endsWith('/100.html')) {
-                const modal = document.getElementById('demo-end-modal');
-                modal.classList.add('show');
-                return;
-            }
-            
-            // Preserve admin mode state
-            const isAdminMode = document.body.classList.contains('admin-mode');
-            if (isAdminMode) {
-                sessionStorage.setItem('admin-mode', 'true');
-            }
-            
-            // Navigate to target page 
-            window.location.href = `${toPageId}`;
-        }
-        
-        function attachActionListeners(item) {
-            const actionId = item.getAttribute('data-action-id');
-            const isSaved = item.getAttribute('data-is-saved') === 'true';
-            const textInput = item.querySelector('.action-text-input');
-            const toPageInput = item.querySelector('.action-to-page-input');
-            const deleteBtn = item.querySelector('.action-delete-btn');
-            const saveBtn = item.querySelector('.action-save-btn');
-            const goBtn = item.querySelector('.action-go-btn');
-            
-            if (isSaved) {
-                // Save button - manual save
-                saveBtn.addEventListener('click', () => {
-                    saveAction(actionId, textInput.value, toPageInput.value);
-                });
-                
-                // Go button - navigate while preserving admin mode
-                goBtn.addEventListener('click', () => {
-                    goToActionPage(toPageInput.value);
-                });
-                
-                deleteBtn.addEventListener('click', async () => {
-                    if (!confirm('Delete this action?')) return;
-                    
-                    showSaveStatus('saving');
-                    try {
-                        await axios.delete(`${API_BASE}/actions/${actionId}`);
-                        item.remove();
-                        // Auto-regenerate this page's HTML
-                        await axios.post(`${API_BASE}/regenerate/demo/${PAGE_ID}`);
-                        showSaveStatus('saved');
-                    } catch (error) {
-                        showSaveStatus('error');
-                        console.error('Delete error:', error);
-                    }
-                });
-            } else {
-                // New unsaved action
-                const tempId = actionId.replace('temp-', '');
-                
-                // Save button - create new action
-                saveBtn.addEventListener('click', () => {
-                    createAction(tempId, textInput.value, toPageInput.value);
-                });
-                
-                // Go button - navigate while preserving admin mode
-                goBtn.addEventListener('click', () => {
-                    goToActionPage(toPageInput.value);
-                });
-                
-                deleteBtn.addEventListener('click', () => {
-                    item.remove();
-                });
-            }
-        }
-        
-        // Attach listeners
-        document.getElementById('page-text').addEventListener('input', debouncedSavePageText);
-        
-        // Action inputs
-        document.querySelectorAll('.action-item').forEach(attachActionListeners);
-        
-        // Add action button
-        let tempActionCounter = 0;
-        document.getElementById('add-action-btn').addEventListener('click', () => {
-            tempActionCounter++;
-            const actionsList = document.getElementById('actions-list');
-            
-            const li = document.createElement('li');
-            li.className = 'action-item';
-            li.setAttribute('data-action-id', `temp-${tempActionCounter}`);
-            li.setAttribute('data-is-saved', 'false');
-            li.setAttribute('data-target-page', '');
-            
-            li.innerHTML = `
-                <div class="action-text-display"></div>
-                <div class="action-text-edit">
-                    <input type="text" class="action-text-input" value="" placeholder="Action text">
-                    <input type="text" class="action-to-page-input" value="" placeholder="To page ID" style="margin-top: 0.5rem;">
-                    <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
-                        <button class="action-save-btn" data-action-id="temp-${tempActionCounter}">Save</button>
-                        <button class="action-go-btn" data-action-id="temp-${tempActionCounter}">Go</button>
-                        <button class="action-delete-btn" data-action-id="temp-${tempActionCounter}">Delete</button>
-                    </div>
-                </div>
-            `;
-            
-            actionsList.appendChild(li);
-            attachActionListeners(li);
-            
-            // Focus on first input
-            li.querySelector('.action-text-input').focus();
+            });
         });
     </script>
 </body>
